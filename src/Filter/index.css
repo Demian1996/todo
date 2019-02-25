@@ -1,0 +1,11 @@
+.filter {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  margin-top: 16px;
+}
+.filter button {
+  margin-left: 16px;
+}
+.active {
+  background-color: #e4e4e4;
+}

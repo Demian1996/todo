@@ -22,6 +22,7 @@ li {
 .container .item {
   clear: both;
   float: left;
+  margin: 8px 16px;
 }
 
 .container .item span:first-child {

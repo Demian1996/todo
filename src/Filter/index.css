@@ -6,6 +6,16 @@
 .filter button {
   margin-left: 16px;
 }
+.filter ul {
+  padding: 0;
+  margin: 0;
+}
+.filter ul li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin: 16px;
+}
 .active {
   background-color: #e4e4e4;
 }

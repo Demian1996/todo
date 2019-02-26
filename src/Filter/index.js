@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './index.scss';
 import { ALL, COMPLETED, UNCOMPLETED } from '../const';
 
 const Filter = ({ toggleFilter, filterType }) => (

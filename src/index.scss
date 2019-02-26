@@ -1,4 +1,4 @@
-.stage {
+.container {
   box-sizing: border-box;
   width: 240px;
   padding: 20px;
@@ -8,4 +8,9 @@
 }
 div, ul, li {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
 }

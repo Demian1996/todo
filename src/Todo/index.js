@@ -1,17 +1,17 @@
 import React from 'react';
-import './index.css';
+import './index.scss';
 
 const Todo = ({ inputItemContent, addItem, removeItem, toggleStatus, itemContent, itemList = [] }) => (
-  <div className="container">
+  <div className="todo">
     <form onSubmit={addItem} className="operator">
-      <input type="text" value={itemContent} onChange={inputItemContent} />
+      <input type="text" maxLength={12} value={itemContent} onChange={inputItemContent} />
       <button type="submit">添加</button>
     </form>
     <ul className="list">
       {itemList.map(n => (
-        <li className={n.isCompleted ? 'item del' : 'item'} key={n.id}>
+        <li className="item" key={n.id}>
           <input id={n.id} type="checkbox" checked={n.isCompleted ? "checked" : ""} onChange={() => toggleStatus(n)}/>
-          <label className={n.isCompleted ? "strike" : ''} htmlFor={n.id}>{n.content}</label>
+          <label className={n.isCompleted ? "del" : ''} htmlFor={n.id}>{n.content}</label>
           <button onClick={() => removeItem(n)}>x</button>
         </li>
       ))}

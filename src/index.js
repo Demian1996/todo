@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Todo from './Todo';
 import Filter from './Filter';
 import { ALL, COMPLETED, UNCOMPLETED } from './const';
-import './index.css';
+import './index.scss';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class App extends Component {
     this.filterTree = {
       [COMPLETED]: true,
       [UNCOMPLETED]: false
-    }
+    };
   }
   inputItemContent = e => {
     this.setState({
@@ -53,9 +53,11 @@ class App extends Component {
   };
   render() {
     const { itemList, itemContent, filterType } = this.state;
-    const filteredItemList = filterType === ALL ? itemList : itemList.filter(n => n.isCompleted === this.filterTree[filterType]);
+    const filteredItemList =
+      filterType === ALL ? itemList : itemList.filter(n => n.isCompleted === this.filterTree[filterType]);
     return (
-      <div className="stage">
+      <div className="container">
+        <Filter filterType={filterType} toggleFilter={this.toggleFilter} />
         <Todo
           itemList={filteredItemList}
           itemContent={itemContent}
@@ -64,7 +66,6 @@ class App extends Component {
           toggleStatus={this.toggleStatus}
           removeItem={this.removeItem}
         />
-        <Filter filterType={filterType} toggleFilter={this.toggleFilter} />
       </div>
     );
   }

@@ -6,13 +6,14 @@
   overflow: hidden;
 }
 
-.container ul,
-li {
+.container ul {
   width: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 .container li {
+  width: 100%;
   list-style: none;
 }
 .container .del span:first-child{
@@ -22,7 +23,7 @@ li {
 .container .item {
   clear: both;
   float: left;
-  margin: 8px 16px;
+  padding: 8px 16px;
 }
 
 .container .item span:first-child {
@@ -41,4 +42,8 @@ li {
 
 .operator button {
   float: right;
+}
+
+.strike {
+  text-decoration: line-through;
 }

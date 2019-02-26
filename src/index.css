@@ -6,3 +6,6 @@
   border-radius: 2px;
   margin: 20% auto;
 }
+div, ul, li {
+  box-sizing: border-box;
+}

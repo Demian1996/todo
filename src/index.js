@@ -8,32 +8,42 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [{ id: 1, content: '洗澡', isCompleted: false }, { id: 2, content: '做饭', isCompleted: true }],
-      value: '',
+      itemList: [{ id: 1, content: '洗澡', isCompleted: false }, { id: 2, content: '做饭', isCompleted: true }],
+      itemContent: '',
       filterType: ALL
     };
+    this.filterTree = {
+      [COMPLETED]: true,
+      [UNCOMPLETED]: false
+    }
   }
-  onInput = e => {
+  inputItemContent = e => {
     this.setState({
-      value: e.target.value
+      itemContent: e.target.value
     });
   };
   toggleStatus = item => {
     item.isCompleted = !item.isCompleted;
     this.setState({
-      list: this.state.list
+      itemList: this.state.itemList
     });
   };
-  addItem = () => {
-    const list = this.state.list;
-    list.push({
+  removeItem = n => {
+    this.setState(prevState => ({
+      itemList: prevState.itemList.filter(x => x.id !== n.id)
+    }));
+  };
+  addItem = e => {
+    e.preventDefault();
+    const itemList = this.state.itemList;
+    itemList.push({
       id: new Date().getTime(),
-      content: this.state.value,
+      content: this.state.itemContent,
       isCompleted: false
     });
     this.setState({
-      list,
-      value: ''
+      itemList,
+      itemContent: ''
     });
   };
   toggleFilter = type => {
@@ -42,17 +52,19 @@ class App extends Component {
     });
   };
   render() {
-    const { list, value, filterType } = this.state;
+    const { itemList, itemContent, filterType } = this.state;
+    const filteredItemList = filterType === ALL ? itemList : itemList.filter(n => n.isCompleted === this.filterTree[filterType]);
     return (
       <div className="stage">
         <Todo
-          list={list}
-          value={value}
-          onInput={this.onInput}
+          itemList={filteredItemList}
+          itemContent={itemContent}
+          inputItemContent={this.inputItemContent}
           addItem={this.addItem}
           toggleStatus={this.toggleStatus}
+          removeItem={this.removeItem}
         />
-        <Filter list={list} filterType={filterType} toggleFilter={this.toggleFilter} />
+        <Filter filterType={filterType} toggleFilter={this.toggleFilter} />
       </div>
     );
   }

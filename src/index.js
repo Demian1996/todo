@@ -4,6 +4,9 @@ import Todo from './Todo';
 import Filter from './Filter';
 import { ALL, COMPLETED, UNCOMPLETED } from './const';
 import './index.scss';
+import {observer} from 'mobx-react';
+
+@observer
 class App extends Component {
   constructor(props) {
     super(props);

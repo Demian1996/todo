@@ -9,7 +9,7 @@ todolist
 
 - [ ] 第二版：react+flux
 - [ ] 第三版：react+redux
-- [ ] 第四版：react+mobx（3 月 2 日分享）
+- [x] 第四版：react+mobx（3 月 2 日分享）
 
 ## 运行
 `npm run start`

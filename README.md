@@ -7,7 +7,7 @@ todolist
 
 计划
 
-- [ ] 第二版：react+flux
+- [x] 第二版：react+flux
 - [ ] 第三版：react+redux
 - [x] 第四版：react+mobx（3 月 2 日分享）
 
